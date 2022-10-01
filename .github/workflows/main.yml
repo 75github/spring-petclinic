@@ -1,18 +1,5 @@
-on: push
-jobs:
-  security:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@master
-      - name: Run Snyk to check for vulnerabilities
-        uses: snyk/actions/node@master
-        continue-on-error: true
-        env:
-          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
-          
-          name: Build
-  name: Build
-#between synk and Sonar
+name: Build
+on:
   push:
     branches:
       - master
